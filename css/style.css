@@ -1,0 +1,212 @@
+.playground {
+	background-color: #63943a;
+	height: 380px;
+	width: 90%;
+	margin: auto;
+	border: 1px solid #000;
+	border-radius: 5px;
+	position: relative;
+}
+.playground .outer, .inner{
+	border: 2px solid #000;
+	margin: auto;
+   	top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	position: absolute;
+}
+.playground .outer.out{
+	width: 300px;
+	height: 300px;
+	background-color: #FFF;
+	bottom: 40;
+}
+.playground .outer.in{
+	width: 280px;
+	height: 280px;
+	background-color: #63943a;
+	cursor: pointer;
+}
+.inner.ball{
+	width: 100px;
+	height: 100px;
+	background-color: #FFF;
+	text-align: center;
+	vertical-align: middle;	
+	line-height: 100px;
+	cursor: pointer;
+}
+.playground .step{
+	height: 40px;
+	width: 150px;
+	background-color: #FFF;
+	border: 2px solid #000;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 40px;
+	font-size: 30px;
+	font-family: "Arial";
+	margin: auto;
+	top: 350;
+	left: 0;
+	right: 0;
+	position: absolute;
+	
+}
+.circle {
+    border-radius: 50%;
+}
+.result {
+	border: 2px solid #000;
+	border-radius: 20px;
+	height: auto;
+	text-align: center;
+	width: 95%;
+	margin: 30 auto 0 auto;
+	padding-bottom: 20px;
+}
+.result > span , .rank > span {
+	font-size: 30px;
+	text-decoration: underline;
+	font-family: "Arial";
+	display: block;
+	padding-bottom: 10px;
+}
+.result .pathway {
+	height: 150px;
+	border: 2px solid #000;
+	border-radius: 5px;
+	display: inline-block;
+	width: 17%;
+	margin-left: 2%;
+	vertical-align: middle;
+	font-family: "Arial";
+	position: relative;
+}
+.pathway.played {
+	background-color: #FFE073;
+}
+.pathway.playing {
+	background-color: #DFB138;
+}
+.pathway > .data {
+	margin: auto;
+	top: 35%;
+	left: 0;
+	right: 0;
+	position: absolute;
+	font-size: 20px;
+}
+.result  > div.pathway:first-of-type  {
+	margin-left: 0;
+}
+.rank {
+	border: 2px solid #000;
+	border-radius: 10px;
+	height: auto;
+	text-align: center;
+	width: 85%;
+	margin: 10 auto 0 auto;
+	padding-bottom: 20px;
+	position: relative;
+}
+.rank .block .ranking {
+	height: 150px;
+	border: 2px solid #000;
+	border-radius: 10px;
+	display: inline-block;
+	width: 100%;
+	vertical-align: middle;
+	font-family: "Arial";
+	line-height: 150px;
+	position: relative;
+}
+.rank  > div.block:nth-of-type(2)  {
+	margin-left: 0;
+}
+.rank .block {
+	display: inline-block;
+	width: 17%;
+	margin-left: 2%;
+	vertical-align: middle;
+	font-family: "Arial";
+	position: relative;
+}
+.rank .block span {
+	display: block;
+}
+.rank .progress{
+	border-right: 2px solid #000;
+	border-radius: 10px;
+	background-color: #ACD9F4;
+	height: 100%;
+	text-align: center;
+	width: 38%;
+	margin: auto;
+	position: absolute;
+	z-index: -9;
+}
+.ranking.reached {
+	background-color: #5EB5E3;
+}
+/*RESPONSIVE*/
+@media (max-width: 768px) {
+	.result .pathway{ 
+	    margin-left: 1%;
+	    height: auto;
+	}
+	.result .pathway:before{
+		content: "";
+		display: block;
+		padding-top: 100%; 	/* initial ratio of 1:1*/
+	}
+	.pathway > .data {
+		font-size: 15px;
+	}	
+	.rank .block .ranking{
+		line-height: normal;
+		height: auto;
+	}	
+	.rank .block .ranking:before {
+		content: "";
+		display: block;
+		padding-top: 100%; 	/* initial ratio of 1:1*/		
+	}
+	.rank .block {
+		margin-left: 1%;
+	}	
+	.rank {
+		width: 100%;
+	}
+}
+@media (max-width: 480px) {
+	.pathway > .data {
+		top: 15%;
+	}		
+}
+@media (max-width: 380px) {
+	.result .pathway{ 
+		margin-left: 0%;
+	}
+	.pathway > .data {
+		font-size: 12px;
+		top: 0%;
+	}
+	.playground	{
+		width: 100%;
+	}
+	.playground .outer.out{
+		width: 280px;
+		height: 280px;
+	}
+	.playground .outer.in{
+		width: 260px;
+		height: 260px;
+	}
+	.inner.ball{
+		width: 80px;
+		height: 80px;
+	    line-height: 80px;		
+	}	
+}
