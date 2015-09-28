@@ -31,5 +31,4 @@
 		ball.height(ball.parent().height() - 4);
 		ball.width(ball.parent().width() - 4);
 	}
-
 })(jQuery);
