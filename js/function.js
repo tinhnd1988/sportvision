@@ -2,6 +2,9 @@
 	$(document).ready(function() {
 		animationTime = 3500; //ms
 		$ball = $('.inner.ball');
+		$ball.default_height = $ball.height();
+		$ball.default_width = $ball.width();
+
 		status = 0;
 
 		$('.playground .outer .in').on("click", function(){
@@ -28,10 +31,10 @@
 		if (status == 1)
 		{
 			$this = $('.inner.ball > span');
-			$this.parent().clearQueue();
-			$this.parent().stop();
+			$this.parent().removeAttr("style");
 			$this.text('Too Early! Play Again');
 			$this.show();
+			status = 0;
 		}
 		else if (status == 2)
 			alert('Good');
@@ -40,7 +43,6 @@
 	function moveBall(){
 		status = 1;
 		$('.inner.ball > .loading_dots').hide();
-		$('.inner.ball').addClass('transition');
 
 	    var myTransition = ($.browser.webkit)  ? '-webkit-transition' :
 	                       ($.browser.mozilla) ? '-moz-transition' : 
