@@ -24,7 +24,7 @@
 					</div>
 				</div>
 				<div class="step">
-					<span id="value">0</span> / 5
+					<span class="value">0</span> / 5
 				</div>
 			</div>	
 
