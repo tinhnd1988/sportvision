@@ -8,6 +8,7 @@
     width: 2.75em;
     margin: auto;
     display: none;
+    vertical-align: middle;
   }
 
   .loading_dots span

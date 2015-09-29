@@ -4,6 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/loading.css">
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
 		<script type="text/javascript" src="js/function.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
@@ -23,7 +24,7 @@
 					</div>
 				</div>
 				<div class="step">
-					3 / 5
+					<span id="value">0</span> / 5
 				</div>
 			</div>	
 
