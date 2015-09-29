@@ -1,13 +1,15 @@
 (function($) {
 	$(document).ready(function() {
+		animationTime = 3500; //ms
 		ball = $('.inner.ball');
 		status = 0;
 
 		$('.playground .outer .in').on("click", function(){
-			if (status == 0)
-				startGame();
-			else
-				playingGame();
+			(status == 0) ? startGame() : playingGame();
+		});
+
+		ball.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+			status = 2;
 		});
 
 	});
@@ -17,12 +19,17 @@
 		$('.inner.ball > span').hide();
 		$('.inner.ball > .loading_dots').show();
 		$('.inner.ball').addClass('transition');
-		setTimeout(moveBall, Math.floor(Math.random() * (4000-2000+1)) + 2000);
+		nTime = Math.floor(Math.random() * (4000-2000+1)) + 2000;
+		setTimeout(moveBall, nTime);
+		//setTimeout(function(){status = 1}, animationTime);
 		//moveBall();
 	}
 
 	function playingGame(){
-		alert('aa');
+		if (status == 1)
+			alert('Early');
+		else if (status == 2)
+			alert('Good');
 	}
 
 	function moveBall(){
