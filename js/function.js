@@ -1,28 +1,34 @@
 (function($) {
 	$(document).ready(function() {
 		animationTime = 200; //ms
-		var transEndEventName = whichTransEndEventNames();
+		transEndEventName = whichTransEndEventNames();
+		transEndEventFiredTime = 0;
 		resultTime = -1;
-		var result = {};
-
+		result = {};
+		timePlayed = 0;
 		status = 0;
-		$ball = $('.inner.ball');
-
-		
+		$ball = $('.inner.ball');		
 
 		$('.playground .outer .in').on("click", function(){
 			(status == 0) ? startGame() : playingGame();
 		});
 
-		$ball.one(transEndEventName, function(e){
-			$ball.removeClass('waiting');
-			status = 2;
-			resultTime = new Date().getTime();			
+		$ball.on(transEndEventName, function(){
+			if (transEndEventFiredTime < 1)
+			{
+				$ball.removeClass('waiting');
+				status = 2;
+				resultTime = new Date().getTime();
+				transEndEventFiredTime++;
+			}		
 		});
 
 	});
 
 	function startGame(){
+		//Reconfig
+		$ball.removeAttr("style");
+		transEndEventFiredTime = 0;
 		//LOADING
 		status = 1;
 		$ball.addClass('waiting');
@@ -35,15 +41,17 @@
 	}
 
 	function playingGame(){
-		$this = $ball.children('span');
+		var $this = new Object();
+		$this.playground = $('.container > .playground');
+		$this.result = $('.container > .result');
 
 		if (status == 1)
 		{
 			clearTimeout(timeoutStart);
-			$this.parent().children('.loading_dots').hide();
-			$this.parent().removeAttr("style");
-			$this.text('Too Early! Play Again');
-			$this.show();
+			$this.playground.find('.inner.ball').children('.loading_dots').hide();
+			$this.playground.find('.inner.ball').removeAttr("style");
+			$this.playground.find('.inner.ball > span').text('Too Early! Play Again');
+			$this.playground.find('.inner.ball > span').show();
 			status = 0;
 		}
 		else if (status == 2)
@@ -52,8 +60,16 @@
 			result =  crrTime - resultTime;
 			if (result >= 0)
 			{
-				$this.text(result+'ms');
-				$this.show();
+				timePlayed++;
+				$this.playground.find('.step > span.value').text(timePlayed);
+				$this.playground.find('.inner.ball > span').text(result+'ms');
+				$this.playground.find('.inner.ball > span').show();
+				// setTimeout(function(){
+				// 	$('')
+				// }, 500);
+
+				//Reset status
+				status = 0;
 			}
 			else
 				alert('ERROR');
