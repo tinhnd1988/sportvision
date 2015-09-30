@@ -1,11 +1,11 @@
 (function($) {
 	$(document).ready(function() {
 		animationTime = 3500; //ms
-		$ball = $('.inner.ball');
-		$ball.default_height = $ball.height();
-		$ball.default_width = $ball.width();
-
 		status = 0;
+		resultTime = -1;
+		$ball = $('.inner.ball');
+
+		
 
 		$('.playground .outer .in').on("click", function(){
 			(status == 0) ? startGame() : playingGame();
@@ -13,6 +13,10 @@
 
 		$ball.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
 			status = 2;
+			// resultTime = setInterval(function(){
+			// 	console.log(time = new Date().toLocaleTimeString());
+			// }, 1000);
+			console.log('123');
 		});
 
 	});
@@ -37,7 +41,10 @@
 			status = 0;
 		}
 		else if (status == 2)
+		{
 			alert('Good');
+			clearInterval(resultTime);
+		}	
 	}
 
 	function moveBall(){
