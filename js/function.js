@@ -1,6 +1,8 @@
 (function($) {
 	$(document).ready(function() {
-		animationTime = 3500; //ms
+		animationTime = 200; //ms
+		$ball = $('.inner.ball');
+		$outball = $('.inner.ball');
 		status = 0;
 		resultTime = -1;
 		$ball = $('.inner.ball');
@@ -12,6 +14,7 @@
 		});
 
 		$ball.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+			$('.inner.ball').removeClass('waiting');
 			status = 2;
 			// resultTime = setInterval(function(){
 			// 	console.log(time = new Date().toLocaleTimeString());
@@ -23,6 +26,8 @@
 
 	function startGame(){
 		//LOADING
+		status = 1;
+		$('.inner.ball').addClass('waiting');
 		$('.inner.ball > span').hide();
 		$('.inner.ball > .loading_dots').css("display", "table-cell");
 		nTime = Math.floor(Math.random() * (4000-2000+1)) + 2000;

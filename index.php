@@ -7,6 +7,7 @@
 		<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
 		<script type="text/javascript" src="js/function.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Sport Vision Test game</title>
 	</head>
 	<body>
 		<div class="container">
@@ -24,7 +25,7 @@
 					</div>
 				</div>
 				<div class="step">
-					<span id="value">0</span> / 5
+					<span class="value">0</span> / 5
 				</div>
 			</div>	
 
