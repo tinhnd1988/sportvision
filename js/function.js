@@ -1,14 +1,11 @@
 (function($) {
 	$(document).ready(function() {
 		animationTime = 200; //ms
-		//
-		var timeoutStart;
 		var transEndEventName = whichTransEndEventNames();
-		//
-		$ball = $('.inner.ball');
-		$outball = $('.inner.ball');
-		status = 0;
 		resultTime = -1;
+		var result = {};
+
+		status = 0;
 		$ball = $('.inner.ball');
 
 		
@@ -18,12 +15,9 @@
 		});
 
 		$ball.one(transEndEventName, function(e){
-			$('.inner.ball').removeClass('waiting');
+			$ball.removeClass('waiting');
 			status = 2;
-			// resultTime = setInterval(function(){
-			// 	console.log(time = new Date().toLocaleTimeString());
-			// }, 1000);
-			console.log('123');
+			resultTime = new Date().getTime();			
 		});
 
 	});
@@ -31,9 +25,9 @@
 	function startGame(){
 		//LOADING
 		status = 1;
-		$('.inner.ball').addClass('waiting');
-		$('.inner.ball > span').hide();
-		$('.inner.ball > .loading_dots').show();
+		$ball.addClass('waiting');
+		$ball.children('span').hide();
+		$ball.children('.loading_dots').show();
 		nTime = Math.floor(Math.random() * (4000-2000+1)) + 2000;
 		timeoutStart = setTimeout(moveBall, nTime);
 		//setTimeout(function(){status = 1}, animationTime);
@@ -41,10 +35,11 @@
 	}
 
 	function playingGame(){
+		$this = $ball.children('span');
+
 		if (status == 1)
 		{
 			clearTimeout(timeoutStart);
-			$this = $('.inner.ball > span');
 			$this.parent().children('.loading_dots').hide();
 			$this.parent().removeAttr("style");
 			$this.text('Too Early! Play Again');
@@ -53,8 +48,16 @@
 		}
 		else if (status == 2)
 		{
-			alert('Good');
-			clearInterval(resultTime);
+			crrTime = new Date().getTime();
+			result =  crrTime - resultTime;
+			if (result >= 0)
+			{
+				$this.text(result+'ms');
+				$this.show();
+			}
+			else
+				alert('ERROR');
+
 		}	
 	}
 
