@@ -1,6 +1,9 @@
 (function($) {
 	$(document).ready(function() {
 		animationTime = 200; //ms
+		//
+		var timeoutStart;
+		//
 		$ball = $('.inner.ball');
 		$outball = $('.inner.ball');
 		status = 0;
@@ -31,7 +34,7 @@
 		$('.inner.ball > span').hide();
 		$('.inner.ball > .loading_dots').css("display", "table-cell");
 		nTime = Math.floor(Math.random() * (4000-2000+1)) + 2000;
-		setTimeout(moveBall, nTime);
+		timeoutStart = setTimeout(moveBall, nTime);
 		//setTimeout(function(){status = 1}, animationTime);
 		//moveBall();
 	}
@@ -39,7 +42,9 @@
 	function playingGame(){
 		if (status == 1)
 		{
+			clearTimeout(timeoutStart);
 			$this = $('.inner.ball > span');
+			$this.parent().children('.loading_dots').hide();
 			$this.parent().removeAttr("style");
 			$this.text('Too Early! Play Again');
 			$this.show();
@@ -53,7 +58,6 @@
 	}
 
 	function moveBall(){
-		status = 1;
 		$('.inner.ball > .loading_dots').hide();
 
 	    var myTransition = ($.browser.webkit)  ? '-webkit-transition' :
