@@ -109,7 +109,6 @@
 	right: 0;
 	position: absolute;
 	font-size: 20px;
-	display: none;
 }
 .result  > div.pathway:first-of-type  {
 	margin-left: 0;

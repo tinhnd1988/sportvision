@@ -38,7 +38,6 @@
 		timePlayed++;
 		$('.result #pathway_'+timePlayed).addClass('playing');
 		$('.result #pathway_'+timePlayed+' > .data > .second').text('Now Playing');
-		$('.result #pathway_'+timePlayed+' > .data').show();
 		nTime = Math.floor(Math.random() * (4000-2000+1)) + 2000;
 		timeoutStart = setTimeout(moveBall, nTime);
 		//setTimeout(function(){status = 1}, animationTime);
@@ -68,12 +67,14 @@
 				$this.playground.find('.step > span.value').text(timePlayed);
 				$this.playground.find('.inner.ball > span').text(result+'ms');
 				$this.playground.find('.inner.ball > span').show();
+				//Update Result
 				setTimeout(function(){
 					$this.result.find('#pathway_'+timePlayed).removeClass('playing');
 					$this.result.find('#pathway_'+timePlayed).addClass('played');
 					$this.result.find('#pathway_'+timePlayed+' > .data > span.second').text(result+'ms');
 				}, 500);
-
+				//Update Rank
+				setTimeout(updateRank,500);
 				//Reset status
 				status = 0;
 			}
@@ -95,6 +96,10 @@
 
 	    myCSSObj[myTransition] = 'all '+animationTime+'ms ease';
 	    $ball.css(myCSSObj);
+	}
+
+	function updateRank(){
+		console.log('Update ranking here');
 	}
 
 	function whichTransEndEventNames() {
