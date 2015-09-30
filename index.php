@@ -31,32 +31,40 @@
 
 			<div class="result">
 				<span>Your Results:</span>
-				<div id="pathway_1" class="pathway played">
+				<div id="pathway_1" class="pathway">
 					<div class="data">
 						<label>1st play:</label>
 						<br>
-						<span class="second">540ms</span>
+						<span class="second"></span>
 					</div>
 				</div>
-				<div id="pathway_2" class="pathway played">
+				<div id="pathway_2" class="pathway">
 					<div class="data">
-						<label>1st play:</label>
+						<label>2nd play:</label>
 						<br>
-						<span class="second">540ms</span>
+						<span class="second"></span>
 					</div>					
 				</div>
-				<div id="pathway_3" class="pathway playing">
+				<div id="pathway_3" class="pathway">
 					<div class="data">
-						<label>1st play:</label>
+						<label>3rd play:</label>
 						<br>
-						<span class="second">Now Playing</span>
+						<span class="second"></span>
 					</div>					
 				</div>
 				<div id="pathway_4" class="pathway">
-					
+					<div class="data">
+						<label>4th play:</label>
+						<br>
+						<span class="second"></span>
+					</div>					
 				</div>
 				<div id="pathway_5" class="pathway">
-					
+					<div class="data">
+						<label>5th play:</label>
+						<br>
+						<span class="second"></span>
+					</div>					
 				</div>												
 			</div>
 
