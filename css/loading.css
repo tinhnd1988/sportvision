@@ -8,7 +8,11 @@
     width: 2.75em;
     margin: auto;
     display: none;
-    vertical-align: middle;
+    top: 50%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    transform: translate(0, -50%);
   }
 
   .loading_dots span

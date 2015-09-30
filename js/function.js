@@ -3,6 +3,7 @@
 		animationTime = 200; //ms
 		//
 		var timeoutStart;
+		var transEndEventName = whichTransEndEventNames();
 		//
 		$ball = $('.inner.ball');
 		$outball = $('.inner.ball');
@@ -16,7 +17,7 @@
 			(status == 0) ? startGame() : playingGame();
 		});
 
-		$ball.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+		$ball.one(transEndEventName, function(e){
 			$('.inner.ball').removeClass('waiting');
 			status = 2;
 			// resultTime = setInterval(function(){
@@ -32,7 +33,7 @@
 		status = 1;
 		$('.inner.ball').addClass('waiting');
 		$('.inner.ball > span').hide();
-		$('.inner.ball > .loading_dots').css("display", "table-cell");
+		$('.inner.ball > .loading_dots').show();
 		nTime = Math.floor(Math.random() * (4000-2000+1)) + 2000;
 		timeoutStart = setTimeout(moveBall, nTime);
 		//setTimeout(function(){status = 1}, animationTime);
@@ -71,4 +72,18 @@
 	    $ball.css(myCSSObj);
 	}
 
+	function whichTransEndEventNames() {
+	    var el = document.createElement('fake'),
+	        transEndEventNames = {
+	            'WebkitTransition' : 'webkitTransitionEnd',// Saf 6, Android Browser
+	            'MozTransition'    : 'transitionend',      // only for FF < 15
+	            'transition'       : 'transitionend'       // IE10, Opera, Chrome, FF 15+, Saf 7+
+	        };
+
+	    for(var t in transEndEventNames){
+	        if( el.style[t] !== undefined ){
+	            return transEndEventNames[t];
+	        }
+	    }
+	}
 })(jQuery);

@@ -34,12 +34,14 @@
 	background-color: #FFF;
 	text-align: center;
 	vertical-align: middle;	
-	display: table;
 	cursor: pointer;
 }
 .inner.ball > span{
-	display: table-cell;
-	vertical-align: middle;
+	top: 50%;
+	left: 0;
+	right: 0;
+	position: absolute;
+	transform: translate(0, -50%);
 }
 .transition {
 	-webkit-transition: all 3500ms ease;
