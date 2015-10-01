@@ -80,10 +80,14 @@
 				if (timePlayed == 5)
 				{
 					alert('Game summary popup');
+					$this.playground.find('.inner.ball > span').append('<p>GAME OVER</p>');
+					$this.playground.find('.outer .in').unbind('click');
+					$this.playground.find('.outer .in').css('cursor', 'default');
+					$this.playground.find('.inner.ball').css('cursor', 'default');
 				}
 				else
 				{
-					$this.playground.find('.inner.ball > span').html('Played '+timePlayed+' of 5<br>Click to start');
+					$this.playground.find('.inner.ball > span').append('<p>Played '+timePlayed+' of 5<br>Click to start</p>');
 
 				}
 				//Reset status
