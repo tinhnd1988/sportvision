@@ -52,6 +52,7 @@
 		if (status == 1)
 		{
 			clearTimeout(timeoutStart);
+			timePlayed--;
 			$this.playground.find('.inner.ball').children('.loading_dots').hide();
 			$this.playground.find('.inner.ball').removeAttr("style");
 			$this.playground.find('.inner.ball > span').text('Too Early! Play Again');
@@ -75,6 +76,16 @@
 				}, 500);
 				//Update Rank
 				setTimeout(updateRank,500);
+				//Is 5th played
+				if (timePlayed == 5)
+				{
+					alert('Game summary popup');
+				}
+				else
+				{
+					$this.playground.find('.inner.ball > span').html('Played '+timePlayed+' of 5<br>Click to start');
+
+				}
 				//Reset status
 				status = 0;
 			}
@@ -99,8 +110,9 @@
 	}
 
 	function updateRank(){
-		console.log('Update ranking here');
+		alert('Update ranking here');
 	}
+
 
 	function whichTransEndEventNames() {
 	    var el = document.createElement('fake'),
