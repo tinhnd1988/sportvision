@@ -1,10 +1,10 @@
 (function($) {
 	$(document).ready(function() {
-		animationTime = 200; //ms
+		animationTime = 150; //ms
 		transEndEventName = whichTransEndEventNames();
 		transEndEventFiredTime = 0;
 		resultTime = -1;
-		result = {};
+		resultTotal = {};
 		timePlayed = 0;
 		status = 0;
 		$ball = $('.inner.ball');		
@@ -69,6 +69,7 @@
 				$this.playground.find('.inner.ball > span').text(result+'ms');
 				$this.playground.find('.inner.ball > span').show();
 				//Update Result
+				resultTotal[timePlayed] = result;
 				setTimeout(function(){
 					$this.result.find('#pathway_'+timePlayed).removeClass('playing');
 					$this.result.find('#pathway_'+timePlayed).addClass('played');
@@ -94,7 +95,7 @@
 				status = 0;
 			}
 			else
-				alert('ERROR');
+				console.log('ERROR');
 
 		}	
 	}
@@ -114,9 +115,26 @@
 	}
 
 	function updateRank(){
-		alert('Update ranking here');
-	}
+		if (timePlayed > 5){
+			console.log('ERROR');
+			return;
+		}
 
+		totalRank = 0;
+		avgRank = 0;
+		for (var i = 1; i <= timePlayed; i++) {
+			Rank = 100 - (resultTotal[i] * 100) / 1000;
+			(Rank <= 0) ? Rank = 0 : '';
+			console.log(Rank);
+			totalRank += Rank;
+			avgRank = totalRank / timePlayed;
+			
+		};
+		console.log(avgRank);
+		$('.container > .rank > .progress').addClass('transition');
+		$('.container > .rank > .progress').show();
+		$('.container > .rank > .progress').width(avgRank+'%');;
+	}
 
 	function whichTransEndEventNames() {
 	    var el = document.createElement('fake'),

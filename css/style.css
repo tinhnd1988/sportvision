@@ -154,10 +154,12 @@
 	background-color: #ACD9F4;
 	height: 100%;
 	text-align: center;
-	width: 38%;
+	width: 0%;
+	max-width: 100%;
 	margin: auto;
 	position: absolute;
 	z-index: -9;
+	display: none;
 }
 .ranking.reached {
 	background-color: #5EB5E3;
