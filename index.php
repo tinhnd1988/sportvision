@@ -75,29 +75,29 @@
 				<span>How you rank:</span>
 				<div id="rank_level_1" class="block">
 					<span>TEXT</span>
-					<div class="ranking reached">
+					<div class="ranking">
 						icon
 					</div>
 				</div>
-				<div id="rank_level_1" class="block">
-					<span>TEXT</span>
-					<div class="ranking reached">
-						icon
-					</div>
-				</div>
-				<div id="rank_level_1" class="block">
+				<div id="rank_level_2" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
 						icon
 					</div>
 				</div>
-				<div id="rank_level_1" class="block">
+				<div id="rank_level_3" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
 						icon
 					</div>
 				</div>
-				<div id="rank_level_1" class="block">
+				<div id="rank_level_4" class="block">
+					<span>TEXT</span>
+					<div class="ranking">
+						icon
+					</div>
+				</div>
+				<div id="rank_level_5" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
 						icon

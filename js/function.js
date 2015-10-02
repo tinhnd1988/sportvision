@@ -130,10 +130,24 @@
 			avgRank = totalRank / timePlayed;
 			
 		};
-		console.log(avgRank);
+
 		$('.container > .rank > .progress').addClass('transition');
 		$('.container > .rank > .progress').show();
-		$('.container > .rank > .progress').width(avgRank+'%');;
+		$('.container > .rank > .progress').width(avgRank+'%');
+		rankReached(avgRank);
+	}
+
+	function rankReached(avgRank){
+		$this = $('.container > .rank');
+		rankLevelTotal = $this.find('.block').length;
+		for (var i = 1; i <= rankLevelTotal; i++){
+			if ((20*i)-20 <= avgRank){
+				$this.find('#rank_level_'+i+' > .ranking').addClass('transition');
+				$this.find('#rank_level_'+i+' > .ranking').addClass('reached');
+			}
+			else
+				$this.find('#rank_level_'+i+' > .ranking').removeClass('reached');
+		}
 	}
 
 	function whichTransEndEventNames() {
