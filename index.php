@@ -76,34 +76,45 @@
 				<div id="rank_level_1" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
-						icon
+						very slow
 					</div>
 				</div>
 				<div id="rank_level_2" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
-						icon
+						slow
 					</div>
 				</div>
 				<div id="rank_level_3" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
-						icon
+						medium
 					</div>
 				</div>
 				<div id="rank_level_4" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
-						icon
+						fast
 					</div>
 				</div>
 				<div id="rank_level_5" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
-						icon
+						very fast
 					</div>
 				</div>																																								
 			</div>						
+		</div>
+		<div id="summary">
+			<div class="overlay"></div>
+			<div class="popupOut">
+				<div class="popupIn">
+					<h2>GAME OVER</h2>
+					<p>Your result</p>
+					<p id="result"><span>0000</span> ms</p>
+					<button class="replay">Replay</button>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

@@ -9,7 +9,7 @@
 		status = 0;
 		$ball = $('.inner.ball');		
 
-		$('.playground .outer .in').on("click", function(){
+		$('.playground .outer').on("click",'.in', function(){
 			(status == 0) ? startGame() : playingGame();
 		});
 
@@ -22,8 +22,26 @@
 				transEndEventFiredTime++;
 			}		
 		});
-
+		$('#summary .replay').click(function(event) {
+			resetAll();
+			$('#summary').fadeOut('slow');
+			return false;
+		});
 	});
+
+	function resetAll(){
+		resultTime = -1;
+		resultTotal = {};
+		timePlayed = 0;
+		status = 0;
+		$ball.removeAttr("style").removeClass('waiting ').children('.loading_dots').hide();
+		$ball.children('span').text('Start').show();
+		$('.second').html('');
+		$('.pathway').removeClass('playing played');
+		$('.progress').removeClass('transition').removeAttr('style');
+		$('.ranking').removeClass('reached transition');
+		$('.step .value').html('1');
+	}
 
 	function startGame(){
 		//Reconfig
@@ -80,7 +98,16 @@
 				//Is 5th played
 				if (timePlayed == 5)
 				{
-					alert('Game summary popup');
+					//alert('Game summary popup');
+					var totalRank =0;
+					var avgRank = 0;
+					for (var i = 1; i <= timePlayed; i++) {
+						totalRank += resultTotal[i];
+						avgRank = totalRank / timePlayed;
+					};
+
+					$('#result span').html(Math.round(avgRank * 100) / 100);
+					$('#summary').fadeIn('slow');
 					$this.playground.find('.inner.ball > span').append('<p>GAME OVER</p>');
 					$this.playground.find('.outer .in').unbind('click');
 					$this.playground.find('.outer .in').css('cursor', 'default');
@@ -124,11 +151,10 @@
 		avgRank = 0;
 		for (var i = 1; i <= timePlayed; i++) {
 			Rank = 100 - (resultTotal[i] * 100) / 1000;
-			(Rank <= 0) ? Rank = 0 : '';
+			(Rank <= 0) ? 0 : '';
 			console.log(Rank);
 			totalRank += Rank;
 			avgRank = totalRank / timePlayed;
-			
 		};
 
 		$('.container > .rank > .progress').addClass('transition');
