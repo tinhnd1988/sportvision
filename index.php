@@ -12,7 +12,7 @@
 	<body>
 		<div class="container">
 			<div class="playground">
-				<div class="circle outer out">
+				<div class="circle outer out noselect">
 					<div class="circle outer in">
 						<div class="circle inner ball">
 							<span>Start</span>

@@ -9,19 +9,17 @@
 		status = 0;
 		$ball = $('.inner.ball');		
 
-		$('.playground .outer').on("click",'.in', function(){
-			(status == 0) ? startGame() : playingGame();
-		});
+		bindClick();
 
 		$ball.on(transEndEventName, function(){
 			if (transEndEventFiredTime < 1)
 			{
-				$ball.removeClass('waiting');
 				status = 2;
 				resultTime = new Date().getTime();
 				transEndEventFiredTime++;
 			}		
 		});
+
 		$('#summary .replay').click(function(event) {
 			resetAll();
 			$('#summary').fadeOut('slow');
@@ -29,12 +27,26 @@
 		});
 	});
 
+	function bindClick(){
+		$('.playground .outer').removeAttr('style');
+		$ball.css('cursor', 'pointer');
+		$('.playground .outer').on("click",'.in', function(){
+			(status == 0) ? startGame() : playingGame();
+		});		
+	}
+
+	function unbindClick(){
+		$('.playground .outer').unbind("click").css('cursor', 'default');
+		$ball.css('cursor', 'default');
+	}
+
 	function resetAll(){
+		bindClick();
 		resultTime = -1;
 		resultTotal = {};
 		timePlayed = 0;
 		status = 0;
-		$ball.removeAttr("style").removeClass('waiting ').children('.loading_dots').hide();
+		$ball.removeAttr("style").children('.loading_dots').hide();
 		$ball.children('span').text('Start').show();
 		$('.second').html('');
 		$('.pathway').removeClass('playing played');
@@ -49,7 +61,6 @@
 		transEndEventFiredTime = 0;
 		//LOADING
 		status = 1;
-		$ball.addClass('waiting');
 		$ball.children('span').hide();
 		$ball.children('.loading_dots').show();
 		//Result status
@@ -58,47 +69,37 @@
 		$('.result #pathway_'+timePlayed+' > .data > .second').text('Now Playing');
 		nTime = Math.floor(Math.random() * (4000-2000+1)) + 2000;
 		timeoutStart = setTimeout(moveBall, nTime);
-		//setTimeout(function(){status = 1}, animationTime);
-		//moveBall();
 	}
 
 	function playingGame(){
 		var $this = new Object();
 		$this.playground = $('.container > .playground');
-		$this.result = $('.container > .result');
 
 		if (status == 1)
 		{
 			clearTimeout(timeoutStart);
 			timePlayed--;
-			$this.playground.find('.inner.ball').children('.loading_dots').hide();
-			$this.playground.find('.inner.ball').removeAttr("style");
-			$this.playground.find('.inner.ball > span').text('Too Early! Play Again');
-			$this.playground.find('.inner.ball > span').show();
-			status = 0;
+			$this.playground.find('.inner.ball').removeAttr("style").children('.loading_dots').hide();
+			$this.playground.find('.inner.ball > span').text('Too Early! Play Again').show();
+			status = 0;	
 		}
 		else if (status == 2)
 		{
+			unbindClick();
 			crrTime = new Date().getTime();
 			result =  crrTime - resultTime;
 			if (result >= 0)
 			{
 				$this.playground.find('.step > span.value').text(timePlayed);
-				$this.playground.find('.inner.ball > span').text(result+'ms');
-				$this.playground.find('.inner.ball > span').show();
+				$this.playground.find('.inner.ball > span').text(result+'ms').show();
 				//Update Result
 				resultTotal[timePlayed] = result;
-				setTimeout(function(){
-					$this.result.find('#pathway_'+timePlayed).removeClass('playing');
-					$this.result.find('#pathway_'+timePlayed).addClass('played');
-					$this.result.find('#pathway_'+timePlayed+' > .data > span.second').text(result+'ms');
-				}, 500);
+				updateResult(timePlayed, result);
 				//Update Rank
-				setTimeout(updateRank,500);
+				updateRank();
 				//Is 5th played
 				if (timePlayed == 5)
 				{
-					//alert('Game summary popup');
 					var totalRank =0;
 					var avgRank = 0;
 					for (var i = 1; i <= timePlayed; i++) {
@@ -109,22 +110,22 @@
 					$('#result span').html(Math.round(avgRank * 100) / 100);
 					$('#summary').fadeIn('slow');
 					$this.playground.find('.inner.ball > span').append('<p>GAME OVER</p>');
-					$this.playground.find('.outer .in').unbind('click');
-					$this.playground.find('.outer .in').css('cursor', 'default');
+					unbindClick();
 					$this.playground.find('.inner.ball').css('cursor', 'default');
 				}
 				else
 				{
-					$this.playground.find('.inner.ball > span').append('<p>Played '+timePlayed+' of 5<br>Click to start</p>');
-
+					setTimeout(function(){
+						$this.playground.find('.inner.ball > span').append('<p>Played '+timePlayed+' of 5<br>Click to start</p>');
+						//Reset status
+						status = 0;							
+						bindClick();						
+					},500);
 				}
-				//Reset status
-				status = 0;
 			}
 			else
 				console.log('ERROR');
-
-		}	
+		}		
 	}
 
 	function moveBall(){
@@ -141,6 +142,16 @@
 	    $ball.css(myCSSObj);
 	}
 
+	function updateResult(timePlayed, result){
+		$this = new Object();
+		$this.result = $('.container > .result');
+		setTimeout(function(){
+			$this.result.find('#pathway_'+timePlayed).removeClass('playing');
+			$this.result.find('#pathway_'+timePlayed).addClass('played');
+			$this.result.find('#pathway_'+timePlayed+' > .data > span.second').text(result+'ms');
+		}, 500);		
+	}
+
 	function updateRank(){
 		if (timePlayed > 5){
 			console.log('ERROR');
@@ -155,21 +166,19 @@
 			totalRank += Rank;
 			avgRank = totalRank / timePlayed;
 		};
+		setTimeout(function(){
+			$('.container > .rank > .progress').addClass('transition').show().width(avgRank+'%');
+			rankReached(avgRank);			
+		},500);
 
-		$('.container > .rank > .progress').addClass('transition');
-		$('.container > .rank > .progress').show();
-		$('.container > .rank > .progress').width(avgRank+'%');
-		rankReached(avgRank);
 	}
 
 	function rankReached(avgRank){
 		$this = $('.container > .rank');
 		rankLevelTotal = $this.find('.block').length;
 		for (var i = 1; i <= rankLevelTotal; i++){
-			if ((20*i)-20 <= avgRank){
-				$this.find('#rank_level_'+i+' > .ranking').addClass('transition');
-				$this.find('#rank_level_'+i+' > .ranking').addClass('reached');
-			}
+			if ((20*i)-20 <= avgRank)
+				$this.find('#rank_level_'+i+' > .ranking').addClass('transition reached');
 			else
 				$this.find('#rank_level_'+i+' > .ranking').removeClass('reached');
 		}

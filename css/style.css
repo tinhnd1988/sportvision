@@ -20,7 +20,7 @@
 	width: 300px;
 	height: 300px;
 	background-color: #FFF;
-	bottom: 40;
+	bottom: 40px;
 }
 .playground .outer.in{
 	width: 280px;
@@ -202,6 +202,14 @@
 	background-size: 100% auto;
 	background-position: 0px -20px;
 }
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 /*RESPONSIVE*/
 @media (max-width: 768px) {
 	.result .pathway{ 
@@ -258,7 +266,6 @@
 	}
 	.inner.ball{
 		width: 80px;
-		height: 80px;
-	    line-height: 80px;		
+		height: 80px;	
 	}	
 }
