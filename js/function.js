@@ -152,7 +152,6 @@
 		for (var i = 1; i <= timePlayed; i++) {
 			Rank = 100 - (resultTotal[i] * 100) / 1000;
 			(Rank <= 0) ? 0 : '';
-			console.log(Rank);
 			totalRank += Rank;
 			avgRank = totalRank / timePlayed;
 		};

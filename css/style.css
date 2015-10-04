@@ -189,13 +189,19 @@
 	bottom: 0; 
 	margin: auto; 
 	width: 500px; 
-	height: 300px; 
+	height: 325px; 
 	border-radius: 10px;
 	background-color: #fff; 
 	text-align: center;
 	z-index: 101;
 }
-
+.popupIn > #rank.image{
+	height: 70px;
+	background-image: url("../img/star-rank.gif");
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: 0px -20px;
+}
 /*RESPONSIVE*/
 @media (max-width: 768px) {
 	.result .pathway{ 
