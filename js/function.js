@@ -111,6 +111,7 @@
 
 					$('#result span').html(Math.round(avgRank * 100) / 100);
 					$('#rankpos span').html(rankPosition);
+					$('#rank.image').css('background-position', '0px '+ (-285 + (65*(rankPosition-1))) +'px');
 					$('#summary').fadeIn('slow');
 					$this.playground.find('.inner.ball > span').append('<p>GAME OVER</p>');
 					unbindClick();

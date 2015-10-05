@@ -208,11 +208,11 @@
 	z-index: 101;
 }
 .popupIn > #rank.image{
-	height: 70px;
+	height: 65px;
 	background-image: url("../img/star-rank.gif");
 	background-repeat: no-repeat;
 	background-size: 100% auto;
-	background-position: 0px -20px;
+	background-position: 0px -285px;
 }
 .noselect {
     -webkit-touch-callout: none;
