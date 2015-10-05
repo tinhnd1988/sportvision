@@ -76,31 +76,31 @@
 				<div id="rank_level_1" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
-						very slow
+						<span></span>
 					</div>
 				</div>
 				<div id="rank_level_2" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
-						slow
+						<span></span>
 					</div>
 				</div>
 				<div id="rank_level_3" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
-						medium
+						<span></span>
 					</div>
 				</div>
 				<div id="rank_level_4" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
-						fast
+						<span></span>
 					</div>
 				</div>
 				<div id="rank_level_5" class="block">
 					<span>TEXT</span>
 					<div class="ranking">
-						very fast
+						<span></span>
 					</div>
 				</div>																																								
 			</div>						
