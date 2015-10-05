@@ -112,7 +112,7 @@
 					<h2>GAME OVER</h2>
 					<p>Your result</p>
 					<p id="result">Average time: <span>0000</span> ms</p>
-					<p id="rank"><span>Your rank here</span></p>
+					<p id="rankpos">Your rank: <span>0</span></p>
 					<p id="rank" class="image"></p>
 					<p id="rank"><span>Text about user performance</span></p>
 					<button class="share">Share</button><button class="replay">Replay</button>

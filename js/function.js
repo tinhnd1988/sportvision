@@ -6,6 +6,7 @@
 		resultTime = -1;
 		resultTotal = {};
 		timePlayed = 0;
+		rankPosition = 0;
 		status = 0;
 		$ball = $('.inner.ball');		
 
@@ -45,6 +46,7 @@
 		resultTime = -1;
 		resultTotal = {};
 		timePlayed = 0;
+		rankPosition = 0;
 		status = 0;
 		$ball.removeAttr("style").children('.loading_dots').hide();
 		$ball.children('span').text('Start').show();
@@ -108,6 +110,7 @@
 					};
 
 					$('#result span').html(Math.round(avgRank * 100) / 100);
+					$('#rankpos span').html(rankPosition);
 					$('#summary').fadeIn('slow');
 					$this.playground.find('.inner.ball > span').append('<p>GAME OVER</p>');
 					unbindClick();
@@ -177,8 +180,10 @@
 		$this = $('.container > .rank');
 		rankLevelTotal = $this.find('.block').length;
 		for (var i = 1; i <= rankLevelTotal; i++){
-			if ((20*i)-20 <= avgRank)
+			if ((20*i)-20 <= avgRank){
 				$this.find('#rank_level_'+i+' > .ranking').addClass('transition reached');
+				rankPosition = i;
+			}
 			else
 				$this.find('#rank_level_'+i+' > .ranking').removeClass('reached');
 		}
