@@ -6,10 +6,12 @@
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
 		<script type="text/javascript" src="js/function.js"></script>
+		<script type="text/javascript" src="js/fbconnect.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Sport Vision Test game</title>
 	</head>
 	<body>
+	<h1 id="fb-welcome"></h1>	
 		<div class="container">
 			<div class="playground">
 				<div class="circle outer out noselect">

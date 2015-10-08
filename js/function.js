@@ -67,6 +67,7 @@
 		$ball.children('.loading_dots').show();
 		//Result status
 		timePlayed++;
+		$('.step .value').html(timePlayed);
 		$('.result #pathway_'+timePlayed).addClass('playing');
 		$('.result #pathway_'+timePlayed+' > .data > .second').text('Now Playing');
 		nTime = Math.floor(Math.random() * (4000-2000+1)) + 2000;
