@@ -10,11 +10,11 @@
 	    });
 
 	    getLoginStatus();
-
 	    FB.Event.subscribe('auth.authResponseChange', onAuthResponseChange);
 		FB.Event.subscribe('auth.statusChange', onStatusChange);
 	    // ADD ADDITIONAL FACEBOOK CODE HERE
-
+	    //Bind share button
+		$('.popupIn').on('click','.share', shareToFacebook);
 	  };
 
 	  (function(d, s, id){
@@ -29,7 +29,6 @@
 	function getLoginStatus()
 	{
 		FB.getLoginStatus(function(response) {
-		  	console.log(response);
 		  	if (response.status === 'connected') 
 		  	{
 			    // the user is logged in and has authenticated your
@@ -68,12 +67,26 @@
 	  if( response.status != 'connected' ) {
 	    login(loginCallback);
 	  } else {
-	    showHome();
+	    //WELCOME ACTION HERE
+		FB.api('/me', {fields: 'first_name'}, function(response) {
+			console.log('Welcome, '+response.first_name);
+		});
 	  }
 	}
 
 	function onAuthResponseChange(response) {
-	  console.log('onAuthResponseChange', response);
+	  //console.log('onAuthResponseChange', response);
+	}
+
+	function shareToFacebook()
+	{
+		caption = 'I just scored ' + $('#result span').html() + '! Think you can beat me?';
+		console.log(caption);
+		FB.ui({ method: 'feed',
+			caption: caption,
+			picture: 'http://zindo.info/sportvision/img/share_bg.jpg',
+			name: 'Checkout my score!'
+		}, console.log('Shared'));		
 	}
 
 })(jQuery);
