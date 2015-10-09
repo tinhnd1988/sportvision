@@ -117,6 +117,7 @@
 					$this.playground.find('.inner.ball > span').append('<p>GAME OVER</p>');
 					unbindClick();
 					$this.playground.find('.inner.ball').css('cursor', 'default');
+					$('.popupIn .share').show();
 				}
 				else
 				{
