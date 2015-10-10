@@ -80,14 +80,19 @@
 
 	function shareToFacebook()
 	{
-		caption = 'I just scored ' + $('#result span').html() + '! Think you can beat me?';
-		picture = 'http://zindo.info/sportvision/img/share_bg.jpg', //CHANGE YOUR SHARE PICTURE HERE
-		console.log(caption);
+		score = $('#result span').html();
+		caption = 'I just scored ' + score + '! Think you can beat me?';
+		FBID = 0;
+		FB.api('/me', function(response) {
+			FBID = response.id;
+		});		
+		//Generate picture
+		picture = 'http://zindo.info/sportvision/ajax.php?resultToImage='+score+'&FBID='+FBID, //CHANGE YOUR SHARE PICTURE HERE
 		FB.ui({ method: 'feed',
 			caption: caption,
 			picture: picture,
 			name: 'Checkout my score!',
-			link: 'https://apps.facebook.com/1699249870294264/',		
+			link: 'https://apps.facebook.com/1699249870294264/?'+FBID,		
 		}, function(){
 			$('.popupIn .share').hide();
 		});		
