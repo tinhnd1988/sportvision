@@ -176,13 +176,9 @@
 .ranking.reached {
 	background-color: #5EB5E3;
 }
-#summary {
-	position: fixed; 
-	top: 0; 
-	left: 0; 
-	height: 100%; 
-	width: 100%;
-	display: none;
+#summary { 
+	width: 500px;
+	/*display: none;*/
 }
 #summary .overlay {
 	position: absolute; 
@@ -207,8 +203,12 @@
 	text-align: center;
 	z-index: 101;
 }
+#summary .popupIn {
+	text-align: center;
+}
 .popupIn > #rank.image{
 	height: 65px;
+	width: 100%;
 	background-image: url("../img/star-rank.gif");
 	background-repeat: no-repeat;
 	background-size: 100% auto;

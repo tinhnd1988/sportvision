@@ -3,8 +3,10 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/loading.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css">
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
 		<script type="text/javascript" src="js/function.js"></script>
 		<script type="text/javascript" src="js/fbconnect.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -108,6 +110,19 @@
 			</div>						
 		</div>
 		<div id="summary">
+
+				<div class="popupIn">
+					<h2>GAME OVER</h2>
+					<p>Your result</p>
+					<p id="result">Average time: <span>0000</span> ms</p>
+					<p id="rankpos">Your rank: <span>0</span></p>
+					<p id="rank" class="image"></p>
+					<p id="rank"><span>Text about user performance</span></p>
+					<button class="share">Share</button><button class="replay">Replay</button>
+				</div>
+
+		</div>		
+		<div id="1summary" style="display:none">
 			<div class="overlay"></div>
 			<div class="popupOut">
 				<div class="popupIn">

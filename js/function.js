@@ -26,6 +26,16 @@
 			$('#summary').fadeOut('slow');
 			return false;
 		});
+
+		//fancyBox for summary
+	    $("#summary").fancybox({
+	    	openEffect : 'elastic',
+	    	closeEffect	: 'elastic',
+	    	openSpeed: 250,
+			closeBtn: false,
+			autoCenter: true,
+			scrolling : 'no',		
+	    });		
 	});
 
 	function bindClick(){
@@ -113,7 +123,7 @@
 					$('#result span').html(Math.round(avgRank * 100) / 100);
 					$('#rankpos span').html(rankPosition);
 					$('#rank.image').css('background-position', '0px '+ (-285 + (65*(rankPosition-1))) +'px');
-					$('#summary').fadeIn('slow');
+					$('#summary').trigger('click');
 					$this.playground.find('.inner.ball > span').append('<p>GAME OVER</p>');
 					unbindClick();
 					$this.playground.find('.inner.ball').css('cursor', 'default');
