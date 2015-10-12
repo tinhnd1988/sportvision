@@ -178,7 +178,7 @@
 }
 #summary { 
 	width: 500px;
-	/*display: none;*/
+	display: none;
 }
 #summary .overlay {
 	position: absolute; 
@@ -252,10 +252,18 @@
 		width: 100%;
 	}
 }
+@media (max-width: 600px) {
+	#summary { 
+		width: 300px;
+	}		
+	.popupIn > #rank.image	{
+		height: 36px;
+	}
+}
 @media (max-width: 480px) {
 	.pathway > .data {
 		top: 15%;
-	}		
+	}			
 }
 @media (max-width: 380px) {
 	.result .pathway{ 
@@ -280,4 +288,7 @@
 		width: 80px;
 		height: 80px;	
 	}	
+	#summary { 
+		width: 250px;
+	}		
 }

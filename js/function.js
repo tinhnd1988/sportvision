@@ -11,6 +11,7 @@
 		$ball = $('.inner.ball');		
 
 		bindClick();
+		setRankImage();
 
 		$ball.on(transEndEventName, function(){
 			if (transEndEventFiredTime < 1)
@@ -23,7 +24,6 @@
 
 		$('#summary .replay').click(function(event) {
 			resetAll();
-			$('#summary').fadeOut('slow');
 			return false;
 		});
 
@@ -34,7 +34,10 @@
 	    	openSpeed: 250,
 			closeBtn: false,
 			autoCenter: true,
-			scrolling : 'no',		
+			scrolling : 'no',
+		    afterClose : function(){
+		    	resetAll();
+		    },		
 	    });		
 	});
 
@@ -120,9 +123,10 @@
 						avgRank = totalRank / timePlayed;
 					};
 
-					$('#result span').html(Math.round(avgRank * 100) / 100);
-					$('#rankpos span').html(rankPosition);
-					$('#rank.image').css('background-position', '0px '+ (-285 + (65*(rankPosition-1))) +'px');
+					setTimeout(function(){
+						$('#result span').html(Math.round(avgRank * 100) / 100);
+						$('#rankpos span').html(rankPosition);
+					}, 500);
 					$('#summary').trigger('click');
 					$this.playground.find('.inner.ball > span').append('<p>GAME OVER</p>');
 					unbindClick();
@@ -200,6 +204,23 @@
 			else
 				$this.find('#rank_level_'+i+' > .ranking').removeClass('reached');
 		}
+		setRankImage();
+	}
+
+	function setRankImage(){
+		winWidth = $(window).width();
+		yPos = -285;
+		posStep = 65;
+		if (winWidth <= 380){
+			yPos = -144;
+			posStep = 34;			
+		}		
+		else if (winWidth <= 600){
+			yPos = -174;
+			posStep = 40;			
+		}
+
+		$('#rank.image').css('background-position', '0px '+ (yPos + (posStep*(rankPosition-1))) +'px');
 	}
 
 	function whichTransEndEventNames() {
