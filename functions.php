@@ -16,10 +16,11 @@
 		$font = 'fonts/AdobeCaslonProBold.ttf';
 
 		// Add some shadow to the text
-		// imagettftext($im, 20, 0, 11, 21, $grey, $font, $text);
-
+		//Center string
+		$fontwidth = 16; //Fontwidth for Adobe Caslon Pro
+		$center = (imagesx($im)/2) - ($fontwidth*(strlen($text_1)/2));
 		// // Add the text
-		imagettftext($im, 30, 0, 38.75, 150, $text_color, $font, $text_1);
+		imagettftext($im, 30, 0, $center, 150, $text_color, $font, $text_1);
 		imagettftext($im, 30, 0, 155, 200, $text_color, $font, $text_2);
 		//imagestring($im, $font, 5, 5,  'A Simple Text String', $text_color);
 		// Using imagepng() results in clearer text compared with imagejpeg()

@@ -48,7 +48,6 @@
 		  	{
 		    	// the user isn't logged in to Facebook.
 	  		}
-	
  		});
 	}
 
@@ -82,20 +81,21 @@
 	{
 		score = $('#result span').html();
 		caption = 'I just scored ' + score + '! Think you can beat me?';
-		FBID = 0;
 		FB.api('/me', function(response) {
-			FBID = response.id;
-		});		
-		//Generate picture
-		picture = 'http://zindo.info/sportvision/ajax.php?resultToImage='+score+'&FBID='+FBID, //CHANGE YOUR SHARE PICTURE HERE
-		FB.ui({ method: 'feed',
-			caption: caption,
-			picture: picture,
-			name: 'Checkout my score!',
-			link: 'https://apps.facebook.com/1699249870294264/?'+FBID,		
-		}, function(){
-			$('.popupIn .share').hide();
-		});		
+			//Generate picture
+			picture = 'http://zindo.info/sportvision/ajax.php?resultToImage='+score+'&FBID='+response.id;
+			FB.ui({ method: 'feed',
+				caption: caption,
+				picture: picture,
+				name: 'Checkout my score!',
+				link: 'https://apps.facebook.com/1699249870294264/?'+response.id,		
+			}, function(){
+				$('.popupIn .share').hide();
+			});		
+		});
+
+
+
 	}
 
 })(jQuery);
