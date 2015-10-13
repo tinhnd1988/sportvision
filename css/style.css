@@ -144,7 +144,7 @@
 	background-image: url("../img/star-rank.gif");
 	background-repeat: no-repeat;
 	background-size: 120% auto;
-	background-position: -15px -20px;
+	background-position: -15px -10px;
 }
 .rank  > div.block:nth-of-type(2)  {
 	margin-left: 0;
@@ -224,6 +224,18 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+@-webkit-keyframes blinker {
+  from {opacity: 1.0;}
+  to {opacity: 0.0;}
+}
+.blink{
+	text-decoration: blink;
+	-webkit-animation-name: blinker;
+	-webkit-animation-duration: 0.6s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:ease-in-out;
+	-webkit-animation-direction: alternate;
 }
 /*RESPONSIVE*/
 @media (max-width: 768px) {

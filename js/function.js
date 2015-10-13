@@ -138,7 +138,7 @@
 				else
 				{
 					setTimeout(function(){
-						$this.playground.find('.inner.ball > span').append('<p>Played '+timePlayed+' of 5<br>Click to start</p>');
+						$this.playground.find('.inner.ball > span').append('<p>Played '+timePlayed+' of 5<br><span class="blink">Click to start</span></p>');
 						//Reset status
 						status = 0;							
 						bindClick();						
