@@ -31,12 +31,14 @@
 	    $("#summaryload").fancybox({
 	    	openEffect : 'elastic',
 	    	closeEffect	: 'elastic',
-	    	openSpeed: 250,
+	    	openSpeed: 'slow',
 			closeBtn: false,
 			autoCenter: true,
 			scrolling : 'no',
 		    afterClose : function(){
+		    	unbindClick();
 		    	resetAll();
+		    	return;
 		    },		
 	    });		
 	});
