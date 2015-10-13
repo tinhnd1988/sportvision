@@ -29,7 +29,7 @@
 					</div>
 				</div>
 				<div class="step">
-					<span class="value">0</span> / 5
+					<span class="value">1</span> / 5
 				</div>
 			</div>	
 
@@ -78,31 +78,31 @@
 				</div>
 				<span>How you rank:</span>
 				<div id="rank_level_1" class="block">
-					<span>TEXT</span>
+					<span>SNAIL</span>
 					<div class="ranking">
 						<span></span>
 					</div>
 				</div>
 				<div id="rank_level_2" class="block">
-					<span>TEXT</span>
+					<span>PIG</span>
 					<div class="ranking">
 						<span></span>
 					</div>
 				</div>
 				<div id="rank_level_3" class="block">
-					<span>TEXT</span>
+					<span>RABBIT</span>
 					<div class="ranking">
 						<span></span>
 					</div>
 				</div>
 				<div id="rank_level_4" class="block">
-					<span>TEXT</span>
+					<span>ANTELOPE</span>
 					<div class="ranking">
 						<span></span>
 					</div>
 				</div>
 				<div id="rank_level_5" class="block">
-					<span>TEXT</span>
+					<span>CHEETAH</span>
 					<div class="ranking">
 						<span></span>
 					</div>

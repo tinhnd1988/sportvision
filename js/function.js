@@ -125,7 +125,7 @@
 
 					setTimeout(function(){
 						$('#result span').html(Math.round(avgRank * 100) / 100);
-						$('#rankpos span').html(rankPosition);
+						$('#rankpos span').html($('#rank_level_'+rankPosition+' > span').html());
 					}, 500);
 					$('#summary').trigger('click');
 					$this.playground.find('.inner.ball > span').append('<p>GAME OVER</p>');

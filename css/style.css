@@ -214,6 +214,9 @@
 	background-size: 100% auto;
 	background-position: 0px -285px;
 }
+.popupIn > #rankpos span{
+	font-weight: bold;
+}
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
