@@ -109,6 +109,7 @@
 				</div>																																								
 			</div>						
 		</div>
+		<a id="summaryload" href="#summary"></a>
 		<div id="summary">
 				<div class="popupIn">
 					<h2>GAME OVER</h2>

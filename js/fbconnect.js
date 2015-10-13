@@ -1,7 +1,7 @@
 (function($) {
+	//Change your appID here
+	var appID = 1699249870294264;	
 	$(document).ready(function() {
-	  //Change your appID here
-	  var appID = 1699249870294264;
 	  window.fbAsyncInit = function() {
 	    FB.init({
 	      appId      : appID,
@@ -88,7 +88,7 @@
 				caption: caption,
 				picture: picture,
 				name: 'Checkout my score!',
-				link: 'https://apps.facebook.com/1699249870294264/?'+response.id,		
+				link: 'https://apps.facebook.com/'+appID+'/?'+response.id,		
 			}, function(){
 				$('.popupIn .share').hide();
 			});		

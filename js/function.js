@@ -28,7 +28,7 @@
 		});
 
 		//fancyBox for summary
-	    $("#summary").fancybox({
+	    $("#summaryload").fancybox({
 	    	openEffect : 'elastic',
 	    	closeEffect	: 'elastic',
 	    	openSpeed: 250,
