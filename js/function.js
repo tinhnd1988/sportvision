@@ -127,7 +127,7 @@
 						$('#result span').html(Math.round(avgRank * 100) / 100);
 						$('#rankpos span').html($('#rank_level_'+rankPosition+' > span').html());
 					}, 500);
-					$('#summary').trigger('click');
+					$('#summaryload').trigger('click');
 					$this.playground.find('.inner.ball > span').append('<p>GAME OVER</p>');
 					unbindClick();
 					$this.playground.find('.inner.ball').css('cursor', 'default');
