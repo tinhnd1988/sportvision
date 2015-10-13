@@ -261,12 +261,15 @@
 	}		
 	.popupIn > #rank.image	{
 		height: 36px;
-	}
+	}	
 }
 @media (max-width: 480px) {
 	.pathway > .data {
 		top: 15%;
-	}			
+	}
+	.rank .block span {
+		font-size: 12px;
+	}					
 }
 @media (max-width: 380px) {
 	.result .pathway{ 
@@ -293,5 +296,8 @@
 	}	
 	#summary { 
 		width: 250px;
+	}		
+	.rank .block span {
+		font-size: 10px;
 	}		
 }
