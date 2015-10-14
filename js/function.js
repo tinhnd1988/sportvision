@@ -23,6 +23,7 @@
 		});
 
 		$('#summary .replay').click(function(event) {
+			replayGame();
 			resetAll();
 			return false;
 		});
@@ -134,6 +135,7 @@
 					unbindClick();
 					$this.playground.find('.inner.ball').css('cursor', 'default');
 					$('.popupIn .share').show();
+					completeGame();
 				}
 				else
 				{
@@ -223,6 +225,28 @@
 		}
 
 		$('#rank.image').css('background-position', '0px '+ (yPos + (posStep*(rankPosition-1))) +'px');
+	}
+
+	function completeGame(){
+		FB.api('/me', function(response){
+			FBID = (!response || response.error) ? 0 : FBID = response.id;
+  			
+			$.ajax({
+				url: "ajax.php",
+			  	data: { function: "completeGame", FBID: FBID}
+			});	  			
+		});
+	}
+
+	function replayGame(){
+		FB.api('/me', function(response){
+			FBID = (!response || response.error) ? 0 : FBID = response.id;
+  			
+			$.ajax({
+				url: "ajax.php",
+			  	data: { function: "replayGame", FBID: FBID}
+			});	  			
+		});		
 	}
 
 	function whichTransEndEventNames() {

@@ -46,6 +46,7 @@
 		  	} 
 		  	else 
 		  	{
+		    	console.log('Not logged in to Facebook');
 		    	// the user isn't logged in to Facebook.
 	  		}
  		});
@@ -88,14 +89,14 @@
 				caption: caption,
 				picture: picture,
 				name: 'Checkout my score!',
-				link: 'https://apps.facebook.com/'+appID+'/?'+response.id,		
+				link: 'https://apps.facebook.com/'+appID+'/?', //CHANGE YOUR LINK WHEN GO LIVE HERE
 			}, function(){
-				$('.popupIn .share').hide();
+				$.ajax({
+					url: "ajax.php",
+				  	data: { function: "shareGame", FBID: response.id}
+				});					
 			});		
 		});
-
-
-
 	}
 
 })(jQuery);

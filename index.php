@@ -1,3 +1,9 @@
+<?php
+	require_once('functions.php');
+	session_start();
+	connectDB();
+	pageviewedCount();
+?>
 <!DOCTYPE html>
 <html>
 	<head>

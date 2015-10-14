@@ -1,4 +1,86 @@
 <?php
+	function connectDB()
+	{
+	    $servername = "localhost";
+	    $username = "root";
+	    $password = "hacker";
+	    $dbname = "sportvision";
+
+	    if (!mysql_connect($servername, $username, $password))
+	        die("Can't connect to database");
+
+	    if (!mysql_select_db($dbname))
+	        die("Can't select database");		
+	}
+
+	function completeGame($FBID)
+	{
+		checkPerm();
+		$query = 'INSERT INTO data (FBID, COMPLETED)'.
+				' VALUES ('.$FBID.', 1)'.
+				' ON DUPLICATE KEY'.
+  				' UPDATE COMPLETED=COMPLETED+1';
+
+		$result = mysql_query($query);
+		if (!$result) {
+		    die('[completeGame] ERROR ON UPDATE DATA');
+		}		
+		echo ($result);
+	}
+
+	function shareGame($FBID)
+	{
+		checkPerm();
+		$query = 'INSERT INTO data (FBID, SHARED)'.
+				' VALUES ('.$FBID.', 1)'.
+				' ON DUPLICATE KEY'.
+  				' UPDATE SHARED=SHARED+1';
+
+		$result = mysql_query($query);
+		if (!$result) {
+		    die('[shareGame] ERROR ON UPDATE DATA');
+		}		
+		echo ($result);
+	}
+
+	function replayGame($FBID)
+	{
+		checkPerm();
+		$query = 'INSERT INTO data (FBID, REPLAYED)'.
+				' VALUES ('.$FBID.', 1)'.
+				' ON DUPLICATE KEY'.
+  				' UPDATE REPLAYED=REPLAYED+1';
+
+		$result = mysql_query($query);
+		if (!$result) {
+		    die('[replayGame] ERROR ON UPDATE DATA');
+		}		
+		echo ($result);
+	}
+
+	function checkPerm()
+	{
+		if (!array_key_exists("HTTP_REFERER", $_SERVER))
+			exit('[ajaxshareGame] ERROR! PERMISSION DENIED');
+		elseif (parse_url($_SERVER["HTTP_REFERER"])["host"] != $_SERVER["HTTP_HOST"])
+			exit('[ajaxshareGame] ERROR! PERMISSION DENIED');		
+	}
+
+	function pageviewedCount()
+	{
+		if (!isset($_SESSION['views'])) 
+		{
+			$_SESSION['views'] = 1;
+			updatePageViewed();
+		}
+	}
+
+	function updatePageViewed()
+	{
+		$query = 'UPDATE summary SET value=value+1 WHERE name="pageviewed"';
+		$result = mysql_query($query);
+	}
+
 	function generateResultImage($score, $fbid)
 	{
 		// Set the content-type
