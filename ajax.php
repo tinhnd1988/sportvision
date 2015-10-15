@@ -12,6 +12,7 @@
 		$function = $_GET["function"];
 		if (function_exists($function)){
 			$FBID = (isset($_GET["FBID"])) ? ($_GET["FBID"]) : 0;
+			connectDB();
 			$function($FBID);
 		}
 	}
