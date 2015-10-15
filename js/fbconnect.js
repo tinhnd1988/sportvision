@@ -83,18 +83,21 @@
 		score = $('#result span').html();
 		caption = 'I just scored ' + score + '! Think you can beat me?';
 		FB.api('/me', function(response) {
+			FBID = response.id;
 			//Generate picture
-			picture = 'http://zindo.info/sportvision/ajax.php?resultToImage='+score+'&FBID='+response.id;
+			picture = document.URL.replace('https', 'http')+'ajax.php?resultToImage='+score+'&FBID='+response.id;
 			FB.ui({ method: 'feed',
 				caption: caption,
 				picture: picture,
 				name: 'Checkout my score!',
-				link: 'https://apps.facebook.com/'+appID+'/?', //CHANGE YOUR LINK WHEN GO LIVE HERE
-			}, function(){
-				$.ajax({
-					url: "ajax.php",
-				  	data: { function: "shareGame", FBID: response.id}
-				});					
+				link: 'https://apps.facebook.com/'+appID+'/?'+FBID, //CHANGE YOUR LINK WHEN GO LIVE HERE
+			}, function(response){
+				if (response != null){
+					$.ajax({
+						url: "ajax.php",
+					  	data: { function: "shareGame", FBID: FBID}
+					});										
+				}
 			});		
 		});
 	}
