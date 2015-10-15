@@ -81,6 +81,50 @@
 		$result = mysql_query($query);
 	}
 
+	function getPageViewed()
+	{
+		$query = 'SELECT value FROM summary WHERE name="pageviewed" ';
+		$data = mysql_query($query);
+	    $result = 0;
+	    while (($row = mysql_fetch_array($data, MYSQL_ASSOC)) !== false){
+	      $result = $row['value'];
+	    }
+	    return $result;
+	}
+
+	function getTotalCompleted()
+	{
+		$query = 'SELECT SUM(COMPLETED) AS value FROM data;';
+		$data = mysql_query($query);
+	    $result = 0;
+	    while (($row = mysql_fetch_array($data, MYSQL_ASSOC)) !== false){
+	      $result = $row['value'];
+	    }
+	    return $result;
+	}
+
+	function getTotalShared()
+	{
+		$query = 'SELECT SUM(SHARED) AS value FROM data;';
+		$data = mysql_query($query);
+	    $result = 0;
+	    while (($row = mysql_fetch_array($data, MYSQL_ASSOC)) !== false){
+	      $result = $row['value'];
+	    }
+	    return $result;
+	}
+
+	function getTotalReplayed()
+	{
+		$query = 'SELECT SUM(REPLAYED) AS value FROM data;';
+		$data = mysql_query($query);
+	    $result = 0;
+	    while (($row = mysql_fetch_array($data, MYSQL_ASSOC)) !== false){
+	      $result = $row['value'];
+	    }
+	    return $result;
+	}
+
 	function generateResultImage($score, $fbid)
 	{
 		// Set the content-type

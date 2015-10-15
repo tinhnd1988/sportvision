@@ -15,7 +15,7 @@
 		<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
 		<script type="text/javascript" src="js/function.js"></script>
 		<script type="text/javascript" src="js/fbconnect.js"></script>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>Sport Vision Test game</title>
 	</head>
 	<body>
@@ -114,6 +114,12 @@
 					</div>
 				</div>																																								
 			</div>						
+		</div>
+		<div class="analytics">
+			<span>Pageviewed: <?php echo getPageViewed(); ?></span>
+			<span>Completed: <?php echo getTotalCompleted(); ?></span>
+			<span>Shared: <?php echo getTotalShared(); ?></span>
+			<span>Replay: <?php echo getTotalReplayed(); ?></span>
 		</div>
 		<a id="summaryload" href="#summary"></a>
 		<div id="summary">

@@ -237,6 +237,19 @@
 	-webkit-animation-timing-function:ease-in-out;
 	-webkit-animation-direction: alternate;
 }
+.analytics {
+	margin: 10px auto 10px auto;
+	padding: 5px;
+	border: 1px solid;
+	position: absolute;
+	width: 100px;
+	right: 0;
+	
+	left: 0;
+}
+.analytics span{
+	display: block;
+}
 /*RESPONSIVE*/
 @media (max-width: 768px) {
 	.result .pathway{ 
