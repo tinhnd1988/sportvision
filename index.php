@@ -86,31 +86,66 @@
 				<div id="rank_level_1" class="block">
 					<span>SNAIL</span>
 					<div class="ranking">
-						<span></span>
+						<div>
+							<li class="star-on"></li>
+							<li class="star-off"></li>
+							<li class="star-off"></li>
+							<li class="star-off"></li>
+							<li class="star-off"></li>
+							<span>1</span>
+						</div>
 					</div>
 				</div>
 				<div id="rank_level_2" class="block">
 					<span>PIG</span>
 					<div class="ranking">
-						<span></span>
+						<div>
+							<li class="star-on"></li>
+							<li class="star-on"></li>
+							<li class="star-off"></li>
+							<li class="star-off"></li>
+							<li class="star-off"></li>
+							<span>2</span>
+						</div>
 					</div>
 				</div>
 				<div id="rank_level_3" class="block">
 					<span>RABBIT</span>
 					<div class="ranking">
-						<span></span>
+						<div>
+							<li class="star-on"></li>
+							<li class="star-on"></li>
+							<li class="star-on"></li>
+							<li class="star-off"></li>
+							<li class="star-off"></li>
+							<span>3</span>
+						</div>
 					</div>
 				</div>
 				<div id="rank_level_4" class="block">
 					<span>ANTELOPE</span>
 					<div class="ranking">
-						<span></span>
+						<div>
+							<li class="star-on"></li>
+							<li class="star-on"></li>
+							<li class="star-on"></li>
+							<li class="star-on"></li>
+							<li class="star-off"></li>
+							<span>4</span>
+						</div>
 					</div>
 				</div>
 				<div id="rank_level_5" class="block">
 					<span>CHEETAH</span>
 					<div class="ranking">
-						<span></span>
+						<div>
+							<li class="star-on"></li>
+							<li class="star-on"></li>
+							<li class="star-on"></li>
+							<li class="star-on"></li>
+							<li class="star-on"></li>
+							<span>5</span>
+						</div>
 					</div>
 				</div>																																								
 			</div>						
