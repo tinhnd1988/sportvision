@@ -208,23 +208,22 @@
 			else
 				$this.find('#rank_level_'+i+' > .ranking').removeClass('reached');
 		}
-		setRankImage();
+		setRankImage(rankPosition);
 	}
 
-	function setRankImage(){
-		winWidth = $(window).width();
-		yPos = -285;
-		posStep = 65;
-		if (winWidth <= 380){
-			yPos = -144;
-			posStep = 34;			
-		}		
-		else if (winWidth <= 600){
-			yPos = -174;
-			posStep = 40;			
-		}
-
-		$('#rank.image').css('background-position', '0px '+ (yPos + (posStep*(rankPosition-1))) +'px');
+	function setRankImage(rankPosition){
+		$('.popupIn #rank li').each(function(index, element) {
+			if (index + 1 <= rankPosition)
+			{
+				$(element).removeClass('star-off');
+				$(element).addClass('star-on');
+			}
+			else
+			{
+				$(element).removeClass('star-on');
+				$(element).addClass('star-off');
+			}
+		});		
 	}
 
 	function completeGame(){

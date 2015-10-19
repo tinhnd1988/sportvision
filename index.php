@@ -163,7 +163,13 @@
 					<p>Your result</p>
 					<p id="result">Average time: <span>0000</span> ms</p>
 					<p id="rankpos">Your rank: <span>0</span></p>
-					<p id="rank" class="image"></p>
+					<span id="rank">
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>																		
+					</span>
 					<p id="rank"><span>Text about user performance</span></p>
 					<button class="share">Share</button><button class="replay" onclick="parent.jQuery.fancybox.close()">Replay</button>
 				</div>

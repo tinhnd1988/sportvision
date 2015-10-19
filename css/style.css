@@ -175,6 +175,19 @@
 .rank  > div.block:nth-of-type(2)  {
 	margin-left: 0;
 }
+.popupIn #rank .star-on, .popupIn #rank .star-off{
+	list-style-type: none;
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	background-image: url("../img/star-rank-single.png");
+	background-repeat: no-repeat;
+	background-size: 30px auto;
+	background-position: top;
+}
+.popupIn #rank .star-off{
+	background-position: bottom;
+}
 .rank .block {
 	display: inline-block;
 	width: 17%;
@@ -232,14 +245,14 @@
 #summary .popupIn {
 	text-align: center;
 }
-.popupIn > #rank.image{
+/*.popupIn > #rank.image{
 	height: 65px;
 	width: 100%;
 	background-image: url("../img/star-rank.gif");
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 	background-position: 0px -285px;
-}
+}*/
 .popupIn > #rankpos span{
 	font-weight: bold;
 }
