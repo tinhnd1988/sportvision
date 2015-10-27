@@ -16,7 +16,7 @@
 		<script type="text/javascript" src="js/function.js"></script>
 		<script type="text/javascript" src="js/fbconnect.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<title>Sport Vision Test game</title>
+		<title>Sport Vision Test game test</title>
 	</head>
 	<body>
 	<h1 id="fb-welcome"></h1>	
